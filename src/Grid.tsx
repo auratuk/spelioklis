@@ -1,5 +1,5 @@
 import { useId } from "react";
-import CellComponent from "./Cell";
+import WordCellsComponent from "./WordCells";
 
 export default function GridComponent() {
   const id = useId();
@@ -9,11 +9,14 @@ export default function GridComponent() {
   return (
     <>
       {!!columnsCount && !!rowsCount ? (
-        <div
-          className={`grid gap-1 grid-cols-${columnsCount} grid-rows-${rowsCount} mb-8`}
-        >
-          {[...Array(columnsCount * rowsCount)].map((cell, index) => {
-            return <CellComponent key={`${id} - ${index}`} />;
+        <div className={`grid gap-1 grid-rows-${rowsCount}`}>
+          {[...Array(columnsCount)].map((cell, index) => {
+            return (
+              <WordCellsComponent
+                key={`${id}-${index}`}
+                columnsCount={columnsCount}
+              />
+            );
           })}
         </div>
       ) : null}
