@@ -1,16 +1,22 @@
+import { useId } from "react";
 import CellComponent from "./Cell";
 
 export default function GridComponent() {
+  const id = useId();
   const columnsCount = 5;
   const rowsCount = 6;
 
   return (
-    <div
-      className={`grid grid-cols-${columnsCount} grid-rows-${rowsCount} gap-1 m-auto`}
-    >
-      {[...Array(columnsCount * rowsCount)].map((e, i) => {
-        return <CellComponent />;
-      })}
-    </div>
+    <>
+      {!!columnsCount && !!rowsCount ? (
+        <div
+          className={`grid gap-1 grid-cols-${columnsCount} grid-rows-${rowsCount} mb-8`}
+        >
+          {[...Array(columnsCount * rowsCount)].map((cell, index) => {
+            return <CellComponent key={`${id} - ${index}`} />;
+          })}
+        </div>
+      ) : null}
+    </>
   );
 }

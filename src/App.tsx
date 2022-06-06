@@ -1,10 +1,11 @@
-import "./App.css";
 import GridComponent from "./Grid";
+import KeyboardComponent from "./Keyboard";
 
 function App() {
   return (
-    <div className="App flex h-screen justify-center items-center">
+    <div className="App flex flex-col h-screen justify-center items-center">
       <GridComponent />
+      <KeyboardComponent />
     </div>
   );
 }
