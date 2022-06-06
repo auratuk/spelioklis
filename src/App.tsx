@@ -1,9 +1,10 @@
 import "./App.css";
+import GridComponent from "./Grid";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="App flex h-screen justify-center items-center">
+      <GridComponent />
     </div>
   );
 }
