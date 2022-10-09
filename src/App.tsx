@@ -4,8 +4,7 @@ import KeyboardComponent from "./Keyboard";
 import { useState } from "react";
 
 function App() {
-  const defaultState: string[] = [];
-  const [state, setState] = useState(defaultState);
+  const [state, setState] = useState([...Array(6)]);
   const alphabet = "ĄČĘĖĮŠŲŪŽERTYUIOPLASDFGHJKZCVBNM".split("");
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -31,7 +30,7 @@ function App() {
       className="App outline-none flex flex-col h-screen justify-center items-center"
       onKeyDown={handleKeyDown}
     >
-      <GridComponent chars={state} />
+      <GridComponent words={state} />
       <KeyboardComponent />
     </div>
   );
